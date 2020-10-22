@@ -796,6 +796,7 @@
 
 					$tempkeyfilename = $datapath . "/cache/id_" . $entry["ssh-key"] . ".pem";
 					file_put_contents($tempkeyfilename, $rsa->getPrivateKey(CRYPT_RSA_PRIVATE_FORMAT_PKCS1));
+					chmod($tempkeyfilename, 0600);
 
 					$ssh .= " -i " . escapeshellarg($tempkeyfilename);
 				}
